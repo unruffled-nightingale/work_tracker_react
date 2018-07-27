@@ -23,7 +23,6 @@
   "devDependencies": {
     "jquery": "^3.2.1",
     "react-autobind": "^1.0.6",
-    "react-youtube": "^7.4.0",
     "react-faux-dom": "^2.5.0",
     "d3": "^3.5.14",
     "superagent": "^3.5.2",

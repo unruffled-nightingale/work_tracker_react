@@ -18,34 +18,44 @@ export default class Main extends Component {
 
    }
 
+   getUserId(user_name){
+      var user_id = ""
+      console.log('posting '+this.state.inputTask+' to /get_user');
+      return user_id
+   }
+
+   postTask( task ) {
+       var task_id = ""
+       console.log('posting '+this.state.inputTask+' to /addTask');
+       return task_id
+   }
+
+   logTask ( user_id, task_id, task ) {
+        console.log('posting to /logTask');
+   }
+
+   changeTaskInput(e){
+      /* Changes the state of inputTask based on the status of the input form */
+      this.setState({inputTask : e.target.value})
+   }
+
    addTask () {
+     /* Adds a task to the list of tasks and posts the task to the api */
      if (!this.state.tasks.includes(this.state.inputTask) && this.state.inputTask!=="") {
+         var task_id = ""
+         task_id = postTask(this.state.inputTask)
          this.state.tasks.push(this.state.inputTask)
      }
    }
 
-   changeTaskInput(e){
-      this.setState({inputTask : e.target.value})
-   }
-
    handleOptionChange = (e) => {
-    console.log(e.target.value)
-    console.log(this.state.currentTask)
 
     this.setState({
       currentTask: e.target.value
     });
     if (this.state.currentTask === e.target.value){
         console.log('same')
-
     }
-   }
-
-
-
-   handleFormSubmit(e) {
-      e.preventDefault();
-      console.log('You have selected:', this.state.currentTask);
    }
 
    renderRadioButton = (value) => {
@@ -86,7 +96,6 @@ export default class Main extends Component {
                   Option 3
                 </label>
               </div>
-              <button className="btn btn-default" type="submit">Save</button>
             </form>
          </div>
 
